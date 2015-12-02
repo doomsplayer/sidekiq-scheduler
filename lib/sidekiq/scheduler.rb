@@ -127,7 +127,7 @@ module Sidekiq
                           config['class']
                         end
       config['args'] = Array(config['args'])
-
+      logger.info "config is: #{config}"
        Sidekiq::Client.push(config)
     end
 
