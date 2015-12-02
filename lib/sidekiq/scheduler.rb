@@ -86,7 +86,7 @@ module Sidekiq
             opts = { :job => true }
 
             @@scheduled_jobs[name] = self.rufus_scheduler.send(interval_type, *args, opts) do
-              logger.info "queueing #{config['class']} (#{name})"
+              logger.info "queueing #{config} (#{name})"
               config.delete(interval_type)
               self.handle_errors { self.enqueue_from_config(config) }
             end
